@@ -33,7 +33,7 @@ void Calculator::setup_function_binds()
     connect(ui->btnSeven, &QPushButton::clicked, [this]{this->event_click_seven();});
     connect(ui->btnEight, &QPushButton::clicked, [this]{this->event_click_eight();});
     connect(ui->btnNine, &QPushButton::clicked, [this]{this->event_click_nine();});
-    connect(ui->btnZero, &QPushButton::clicked, [this]{this->event_click_nine();});
+    connect(ui->btnZero, &QPushButton::clicked, [this]{this->event_click_zero();});
 }
 
 // Button Events
@@ -117,6 +117,5 @@ void Calculator::event_click_nine()
 void Calculator::event_click_zero()
 {
     ui->linCalc->setText(ui->linCalc->text().append('0'));
-
 }
 
