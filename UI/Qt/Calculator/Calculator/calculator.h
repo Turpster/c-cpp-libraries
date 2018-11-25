@@ -15,6 +15,8 @@ public:
     explicit Calculator(QWidget *parent = nullptr);
     ~Calculator();
 
+    double parse_expression(const QString& expression);
+
 private:
     Ui::Calculator *ui;
 
@@ -30,7 +32,7 @@ private:
     void event_click_zero();
 
     void event_click_div();
-    void event_click_bsp();
+    void event_click_clr();
     void event_click_equ();
     void event_click_mul();
 

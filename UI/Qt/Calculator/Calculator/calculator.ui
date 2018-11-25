@@ -170,7 +170,7 @@
      <string>/</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnBackspace">
+   <widget class="QPushButton" name="btnClear">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -180,7 +180,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>BSP</string>
+     <string>CLR</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btnMinus">

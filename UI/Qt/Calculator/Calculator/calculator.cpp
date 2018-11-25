@@ -1,5 +1,8 @@
 #include "calculator.h"
 #include "ui_calculator.h"
+#include <vector>
+#include <QtScript>
+#include <string>
 
 Calculator::Calculator(QWidget *parent) :
     QMainWindow(parent),
@@ -16,7 +19,7 @@ Calculator::~Calculator()
 
 void Calculator::setup_function_binds()
 {
-    connect(ui->btnBackspace, &QPushButton::clicked, [this]{this->event_click_bsp();});
+    connect(ui->btnClear, &QPushButton::clicked, [this]{this->event_click_clr();});
     connect(ui->btnMultiply, &QPushButton::clicked, [this]{this->event_click_mul();});
     connect(ui->btnDivide, &QPushButton::clicked, [this]{this->event_click_div();});
     connect(ui->btnEquals, &QPushButton::clicked, [this]{this->event_click_equ();});
@@ -36,9 +39,9 @@ void Calculator::setup_function_binds()
 // Button Events
 
 // Operations
-void Calculator::event_click_bsp()
+void Calculator::event_click_clr()
 {
-    ui->linCalc->text().chop(1);
+    ui->linCalc->setText("");
 }
 
 void Calculator::event_click_mul()
@@ -54,8 +57,9 @@ void Calculator::event_click_div()
 
 void Calculator::event_click_equ()
 {
-    ui->linCalc->setText(ui->linCalc->text().append('='));
+    static QScriptEngine expressionobj;
     // Calculate
+    ui->linCalc->setText(expressionobj.evaluate(ui->linCalc->text()).toString());
 }
 
 // Numbers
